@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+{% block main %}
+ <main class="container py-5 text-center">
+    <h2>MY ACCOUNT</h2><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price Per Share</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{row.symbol}}</td>
+                    <td>{{row.shares}}</td>
+                    <td>{{row.price}}</td>
+                    <td>{{row.value}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <br>
+    <h4 class="d-inline">Cash Balance: </h4> <h4 class=" d-inline text-danger">{{cash}}</h4><br><br>
+
+
+    <h4 class="d-inline">Total Value: </h4> <h4 class=" d-inline text-success">{{total_value}}</h4><br><br>
+
+    <form action="/" method="post">
+        <button class="btn btn-primary" type="submit">Add Cash</button>
+    </form>
+
+
+ </main>
+
+
+
+
+
+
+{% endblock %}
